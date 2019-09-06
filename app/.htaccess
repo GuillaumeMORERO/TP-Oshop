@@ -1,0 +1,4 @@
+# dans le dossier app/
+# on met un fichier .htaccess qui permet de donner une directive à Apache
+# cette directive est valable pour ce dossier et tous ses sous-dossiers
+deny from all

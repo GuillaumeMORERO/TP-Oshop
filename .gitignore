@@ -1,1 +1,9 @@
+# on va demander à Git, d'ingorer le dossier vendor
+/vendor
+# et le fichier composer.lock
+composer.lock
+# ensuite, avec la commande "composer install", Composer va réinstaller les dépendances
+
+DS_Store
+Thumbs.db
 import-external-repo.sh
