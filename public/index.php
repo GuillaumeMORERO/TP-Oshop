@@ -112,7 +112,7 @@ $router->map(
         'controller' => 'CartController',
         'method' => 'cart'
     ],
-    'mon-panier'
+    'cart'
 );
 
 // @author Alexis

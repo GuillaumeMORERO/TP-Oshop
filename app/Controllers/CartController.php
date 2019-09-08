@@ -4,8 +4,8 @@ class CartController {
 
 
     public function cart() {
-        echo 'montre le panier';
-       // $this->show('mon-panier');       
+        //echo 'montre le panier';
+       $this->show('cart');       
     }
     /*
     * HTTP Method : POST

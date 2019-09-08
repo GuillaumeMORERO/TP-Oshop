@@ -76,12 +76,12 @@
             </div>
             <!-- Cart Dropdown-->
             <div class="nav-item dropdown">
-              <a href="cart.html" class="navbar-icon-link d-lg-none">
+              <a href="<?= $absoluteURL ?>/cart/" class="navbar-icon-link d-lg-none">
                   <span class="badge badge-secondary">New</span>
               </a>
               <div class="d-none d-lg-block">
                 <a id="cartdetails" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" href="cart.html" class="navbar-icon-link dropdown-toggle">
+                aria-expanded="false" href="<?= $absoluteURL ?>/cart/" class="navbar-icon-link dropdown-toggle">
                 <i class="fa fa-shopping-cart"></i>
                 <span class="badge badge-secondary">2</span>
                 </a>
@@ -111,7 +111,7 @@
                     <div class="navbar-cart-total"><span class="text-uppercase text-muted">Total</span><strong class="text-uppercase">75 €</strong></div>
                     <!-- buttons-->
                     <div class="d-flex justify-content-between">
-                      <a href="cart.html" class="btn btn-link text-dark mr-3">Voir le panier <i class="fa-arrow-right fa"></i></a>
+                      <a href="<?= $absoluteURL ?>/cart/" class="btn btn-link text-dark mr-3">Voir le panier <i class="fa-arrow-right fa"></i></a>
                       <a href="#" class="btn btn-outline-dark">Commander</a>
                     </div>
                   </div>
