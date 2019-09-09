@@ -1,5 +1,19 @@
 <?php
 
+// Au début du début du début du début du début du début du début du début du début du début
+// du début du début du début du début du début du début du début du début du début du début
+// du début du début du début du début du début du début du début du début
+// du début du début du début du début du début du script
+// on active le système de SESSSIONS PHP
+session_start();
+
+// On fait en sorte que currency existe dans $_SESSION
+// Si la clé n'existe pas
+if (array_key_exists('currency', $_SESSION) === false) {
+    // Alors on la crée, et on donne une valeur par défaut
+    $_SESSION['currency'] = 'EUR';
+}
+
 // FrontController
 // => entonnoir, il récupère toutes les requêtes HTTP
 
@@ -10,6 +24,7 @@ require __DIR__.'/../vendor/autoload.php';
 require __DIR__.'/../app/Controllers/MainController.php';
 require __DIR__.'/../app/Controllers/CatalogController.php';
 require __DIR__.'/../app/Controllers/CartController.php';
+require __DIR__.'/../app/Controllers/CurrencyController.php';
 
 // ! Créer une instance d'altorouter
 $router = new AltoRouter();
@@ -91,6 +106,16 @@ $router->map(
     'type'
 );
 
+$router->map(
+    'GET',
+    '/catalogue/marque/[i:id]',
+    [
+        'controller' => 'CatalogController',
+        'method' => 'brand'
+    ],
+    'marque'
+);
+
 // @author Dylan
 $router->map('GET', '/catalogue/produit/[i:id]', ['controller' => 'CatalogController','method' => 'product'], 'produit');
 
@@ -137,6 +162,18 @@ $router->map(
         'method' => 'delete'
     ],
     'delete-cart'
+);
+
+// Bonus Currencies
+$router->map(
+    'GET',
+    // a => caractères alphanumériques
+    '/currency/[a:isoCode]',
+    [
+        'controller' => 'CurrencyController',
+        'method' => 'change'
+    ],
+    'currency-change'
 );
 
 // On utilise la fonction dump() fournie par la dépendance var-dumper

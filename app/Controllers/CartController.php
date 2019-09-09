@@ -4,8 +4,7 @@ class CartController {
 
 
     public function cart() {
-        echo 'montre le panier';
-       // $this->show('mon-panier');       
+       $this->show('cart');       
     }
     /*
     * HTTP Method : POST
@@ -38,6 +37,10 @@ class CartController {
         
         // On déclare une variable ici pour qu'elle soit disponible dans toutes les Views
         $absoluteURL = $_SERVER['BASE_URI'];
+        // On déclare la variable contenant la monnaie actuelle
+        // $currentCurrency = isset($_SESSION['currency']) ? $_SESSION['currency'] : 'EUR';
+        // On déplace la vérification dans l'index => la clé currency existera toujours
+        $currentCurrency = $_SESSION['currency'];
         
         // $viewVars est disponible dans chaque fichier de vue
         require_once __DIR__.'/../views/header.tpl.php';
