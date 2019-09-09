@@ -47,7 +47,6 @@ class MainController {
     private function show($viewName, $viewVars=array()) {
         // C'est sale, mais pour faire propre, ce serait trop compliqué
         global $router;
-        //dump($router);
         
         // On déclare une variable ici pour qu'elle soit disponible dans toutes les Views
         $absoluteURL = $_SERVER['BASE_URI'];
