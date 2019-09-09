@@ -7,24 +7,22 @@ class CatalogController {
      * HTTP method : GET
      * URL : /catalogue/categorie/[id]
      */
-    public function category() {
+    public function category($urlParams) {
         // dump($urlParams);
         // On récupère la donnée fournie dans l'URL (partie variable/dynamique)
-        //$categoryId = $urlParams['id'];
+        $categoryId = $urlParams['id'];
 
         // echo 'category #'.$categoryId;
 
-        $this->show('category');
+        $this->show(
             // Nom de la View
-            //'category',
+            'category',
             // tableau des données à fournir aux views
-            // [
-            //     'id' => $categoryId,
-            // ]
-            
-    }
-    public function detail() {
-        $this->show('detail');
+            [
+                'id' => $categoryId,
+                'toto' => 'C\'est l\'anniversaire de Jean !!'
+            ]
+        );
     }
 
     /**

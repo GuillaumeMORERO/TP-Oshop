@@ -70,7 +70,7 @@ $router->map(
     // Ici, la portion d'URL a une partie dynamique/variable => []
     // i: => la valeur est un interger
     // :id => id est le nom de cette partie variable
-    '/category/',
+    '/catalogue/categorie/[i:id]',
     [
         'controller' => 'CatalogController',
         'method' => 'category'
@@ -90,16 +90,6 @@ $router->map(
     ],
     'type'
 );
-$router->map(
-    'GET',
-    '/detail/',
-    [
-        'controller' => 'CatalogController',
-        'method' => 'detail'
-    ],
-    'detail'
-);
-
 
 // @author Dylan
 $router->map('GET', '/catalogue/produit/[i:id]', ['controller' => 'CatalogController','method' => 'product'], 'produit');
@@ -112,7 +102,7 @@ $router->map(
         'controller' => 'CartController',
         'method' => 'cart'
     ],
-    'cart'
+    'mon-panier'
 );
 
 // @author Alexis
@@ -173,6 +163,24 @@ else {
     // On peut récupérer les valeurs pour les parties dynamiques/variables de l'URL
     $params = $match['params'];
     // dump($params);exit;
+
+    /* Proposition de Julien S pour instancier le controller
+    switch($match['target']['controller']){
+        case 'MainController' :
+            $CurrentPage = new MainController;
+            break;
+        case 'CatalogController' :
+            $CurrentPage = new CatalogController;
+            break;
+        case 'CartController' :
+            $CurrentPage = new CartController;
+            break;
+        default :
+            $methodName ='error';
+            $match['target']['linkName'] = "404";
+            $CurrentPage = new MainController;
+    }
+    */
 
     // On récupère le nom du Controller et de la méthode
     $controllerName = $routesInfos['controller'];
